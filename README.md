@@ -4,6 +4,11 @@ This repository holds the data, processing code, and source files for an article
 
 To read the article, check out [A local look at the LWCF here](https://hkuz.github.io/DataScienceForConservation_LWCF/)
 
+## License
+
+Original datasets, which are saved in a `/Data` folder, retain any original license and use policy under which they were released. Sources for datasets are noted below. All other work in this repository falls under the GPL v2.0 software license. All other sources are noted where possible.
+
+
 ## Information Sources
 
 - <a href="https://www.nps.gov/subjects/lwcf/index.htm" target="_blank">National Parks Service</a>
