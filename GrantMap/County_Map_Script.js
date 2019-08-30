@@ -126,31 +126,30 @@ Promise.all([getMapData, getGrantData]).then(function(values) {
 
         // Change the style of the selected county
         d3.select(this)
-          .style("opacity", 1)
-          .style("stroke-width", 2);
+          .style("opacity", 1);
       })
-      .on("mousemove", function(d) {
+      .on("mousemove", d => {
         if (grants[d.id]) {
-          let dataPoint = "<div>" +
+          var dataPoint = "<div>" +
             "<strong><span class='label'>County: </span></strong>" +
             d.properties.name + ", "+ st.get(d.id.slice(0, 2)).name + "<br />" +
 
             "<strong><span class='label'>No. Grants: </span></strong>" +
-            grants[d.id]['num_grants'] +
+            grants[d.id]['num_grants'] + "<br />" +
 
             "<strong><span class='label'>Total Value: </span></strong>" +
             format(grants[d.id]['grant_value']) +
             "</div>";
         } else {
-          let dataPoint = "<div>" +
+          var dataPoint = "<div>" +
             "<strong><span class='label'>County: </span></strong>" +
             d.properties.name + ", "+ st.get(d.id.slice(0, 2)).name + "<br />" +
             "</div>";
         }
 
         tooltip.html(dataPoint)
-          .style("left", (d3.event.pageX + 32) + "px")
-          .style("top", (d3.event.pageY + 32) + "px");
+          .style("left", (d3.event.pageX + 10) + "px")
+          .style("top", (d3.event.pageY + 10) + "px");
       })
       .on("mouseout", function(d) {
         // Fade tooltip when mouse leaves
@@ -160,17 +159,8 @@ Promise.all([getMapData, getGrantData]).then(function(values) {
 
         // Revert country to original style
         d3.select(this)
-          .style("opacity", 0.85)
-          .style("stroke-width", 0.5);
+          .style("opacity", 0.85);
       });
-    // .append("title")
-    //   .text(d => {
-    //     if (grants[d.id]) {
-    //       return `${d.properties.name}, ${st.get(d.id.slice(0, 2)).name}\nNo. Grants: ${grants[d.id]['num_grants']}\nTotal Value: ${format(grants[d.id]['grant_value'])}`;
-    //     } else {
-    //      return `${d.properties.name}, ${st.get(d.id.slice(0, 2)).name}`;
-    //     }
-    //   });
 
   // Add state outlines
   g.append("path")
