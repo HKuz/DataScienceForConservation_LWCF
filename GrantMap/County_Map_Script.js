@@ -101,7 +101,12 @@ Promise.all([getMapData, getGrantData]).then(function(values) {
   // Map state id (2-digit number) to properties obj (which includes state name)
   const st = new Map(us.objects.states.geometries.map(d => [d.id, d.properties]));
 
-  // Create county map
+  // Tooltip setup
+  const tooltip = d3.select("#tooltip")
+    .style("display", "none")
+    .classed("tooltip", true);
+
+  // Create county map and add tooltip functionality
   g.selectAll("path")
     .data(counties)
     .join("path")
@@ -113,14 +118,59 @@ Promise.all([getMapData, getGrantData]).then(function(values) {
         }
       })
       .attr("d", path)
-    .append("title")
-      .text(d => {
+      .style("opacity", 0.85)
+      .on("mouseover", function(d) {
+        tooltip.transition()
+          .style("display", "inline")
+          .style("opacity", .9);
+
+        // Change the style of the selected county
+        d3.select(this)
+          .style("opacity", 1)
+          .style("stroke-width", 2);
+      })
+      .on("mousemove", function(d) {
         if (grants[d.id]) {
-          return `${d.properties.name}, ${st.get(d.id.slice(0, 2)).name}\nNo. Grants: ${grants[d.id]['num_grants']}\nTotal Value: ${format(grants[d.id]['grant_value'])}`;
+          let dataPoint = "<div>" +
+            "<strong><span class='label'>County: </span></strong>" +
+            d.properties.name + ", "+ st.get(d.id.slice(0, 2)).name + "<br />" +
+
+            "<strong><span class='label'>No. Grants: </span></strong>" +
+            grants[d.id]['num_grants'] +
+
+            "<strong><span class='label'>Total Value: </span></strong>" +
+            format(grants[d.id]['grant_value']) +
+            "</div>";
         } else {
-         return `${d.properties.name}, ${st.get(d.id.slice(0, 2)).name}`;
+          let dataPoint = "<div>" +
+            "<strong><span class='label'>County: </span></strong>" +
+            d.properties.name + ", "+ st.get(d.id.slice(0, 2)).name + "<br />" +
+            "</div>";
         }
+
+        tooltip.html(dataPoint)
+          .style("left", (d3.event.pageX + 32) + "px")
+          .style("top", (d3.event.pageY + 32) + "px");
+      })
+      .on("mouseout", function(d) {
+        // Fade tooltip when mouse leaves
+        tooltip.transition()
+          .style("opacity", 0)
+          .style("display", "none");
+
+        // Revert country to original style
+        d3.select(this)
+          .style("opacity", 0.85)
+          .style("stroke-width", 0.5);
       });
+    // .append("title")
+    //   .text(d => {
+    //     if (grants[d.id]) {
+    //       return `${d.properties.name}, ${st.get(d.id.slice(0, 2)).name}\nNo. Grants: ${grants[d.id]['num_grants']}\nTotal Value: ${format(grants[d.id]['grant_value'])}`;
+    //     } else {
+    //      return `${d.properties.name}, ${st.get(d.id.slice(0, 2)).name}`;
+    //     }
+    //   });
 
   // Add state outlines
   g.append("path")
