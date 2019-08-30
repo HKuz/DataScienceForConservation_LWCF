@@ -134,7 +134,7 @@ Promise.all([getMapData, getGrantData]).then(function(values) {
   const pad = 140;
 
   svg.call(d3.zoom()
-    .scaleExtent([1, 4])
+    .scaleExtent([1, 5])
     .translateExtent([[0, -pad], [svgWidth, svgHeight + pad]])
     .on("zoom", zoomed)
   );
