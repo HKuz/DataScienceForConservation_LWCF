@@ -6,8 +6,13 @@ To read the article, check out [A local look at the LWCF here](https://hkuz.gith
 
 ## License
 
-Original datasets, which are saved in a `/Data` folder, retain any original license and use policy under which they were released. Sources for datasets are noted below. All other work in this repository falls under the GPL v2.0 software license. All other sources are noted where possible.
+Original datasets, which are saved in a `/Data` folder, retain any original license and use policy under which they were released. Sources for datasets are noted below. All other work in this repository falls under the GPL v2.0 software license. Other sources are noted where possible.
 
+
+## Data Sources
+
+- LWCF Grants List 1965-2011: <a href="http://www.invw.org/2012/06/11/lwcf-grants-database-1283/" target="_blank">Investigate West</a>
+- County map data: <a href="www.census.gov" target="_blank">US Census Bureau</a>
 
 ## Information Sources
 
@@ -18,8 +23,3 @@ Original datasets, which are saved in a `/Data` folder, retain any original lice
 - <a href="https://wilderness.org/mapping-land-and-water-conservation-fund-lwcf" target="_blank">A Map of LWCF Projects</a>
 - <a href="https://waso-lwcf.ncrc.nps.gov/public/index.cfm" target="_blank">LWCF Summary Reports</a>
 - <a href="https://www.lwcfcoalition.com/tools/" target="_blank">LWCF Coalition Tools and Documents</a>
-
-## Data Sources
-
-- <a href="http://www.invw.org/2012/06/11/lwcf-grants-database-1283/" target="_blank">Investigate West LWCF Grants List 1965-2011</a>
-- <a href="www.census.gov" target="_blank">Map data from the US Census Bureau</a>
