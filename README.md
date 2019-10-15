@@ -1,6 +1,6 @@
 # Land and Water Conservation Fund (LWCF) Analysis
 
-This repository holds the data, processing code, and source files for an article giving an overview of the LWCF, analyzing local grant spend by county, and specifically the impact of LWCF grants in New England.
+This repository holds the data, processing code, and source files for an article giving an overview of the LWCF, analyzing local grant spend by county, and reviewing the impact of LWCF grants in New England.
 
 To read the article, check out [A local look at the LWCF here](https://hkuz.github.io/DataScienceForConservation_LWCF/)
 
@@ -23,3 +23,5 @@ Original datasets, which are saved in a `/Data` folder, retain any original lice
 - <a href="https://wilderness.org/mapping-land-and-water-conservation-fund-lwcf" target="_blank">A Map of LWCF Projects</a>
 - <a href="https://waso-lwcf.ncrc.nps.gov/public/index.cfm" target="_blank">LWCF Summary Reports</a>
 - <a href="https://www.lwcfcoalition.com/tools/" target="_blank">LWCF Coalition Tools and Documents</a>
+
+
